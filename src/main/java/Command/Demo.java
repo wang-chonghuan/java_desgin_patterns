@@ -1,6 +1,6 @@
 package Command;
 
-public class Api {
+public class Demo {
     public static void run() {
         Stock stock1 = new Stock("aapl", 10);
         Stock stock2 = new Stock("goog", 15);
