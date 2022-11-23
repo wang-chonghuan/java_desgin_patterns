@@ -1,4 +1,4 @@
-package InterpreterCalculator;
+package Interpreter;
 
 public class MultiplyInterpreter implements Interpreter {
 

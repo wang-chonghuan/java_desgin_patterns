@@ -1,4 +1,4 @@
-package InterpreterCalculator;
+package Interpreter;
 
 public class OperatorUtil {
     public static boolean isSymbol(String symbol) {

@@ -1,4 +1,4 @@
-package InterpreterCalculator;
+package Interpreter;
 
 import java.util.Stack;
 

@@ -1,4 +1,3 @@
-import Command.Demo;
 import org.junit.Test;
 
 public class TestDemos {
@@ -8,5 +7,5 @@ public class TestDemos {
     }
 
     @Test
-    public void testInterpreter() { Interpreter.Demo.run(); }
+    public void testInterpreterCalculator() { Interpreter.Demo.run(); }
 }
