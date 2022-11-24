@@ -8,4 +8,7 @@ public class TestDemos {
 
     @Test
     public void testInterpreterCalculator() { Interpreter.Demo.run(); }
+
+    @Test
+    public void testAdapter() throws InterruptedException { Adapter.Demo.run(); }
 }
