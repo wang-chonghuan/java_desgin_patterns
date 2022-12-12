@@ -1,0 +1,12 @@
+a) Pattern is a way of how classes/objects organized to work together
+to implement the functionality in an object-oriented system
+to make the program easy to reuse and maintain and extend.
+There are 23 commonly used patterns, which can be categorized by two dimensions.
+One is categorized by class/object.
+The other is categorized by their functionalities: create, structure, behaviour.
+the class based design patterns are template, factory method.
+The object based design patterns are strategy, state.
+The create patterns are factory method. The structural patterns are decorator, flyweight.
+The behaviour patterns are command, strategy.
+
+b) model the behaviour depend on the variation of state

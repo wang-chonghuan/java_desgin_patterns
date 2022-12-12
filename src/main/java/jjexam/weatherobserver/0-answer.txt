@@ -1,0 +1,8 @@
+a)
+1. publisher has to inform the subject to listeners
+2. listeners can attach and detach to the publisher
+3. publisher has a one-to-many relation with the listeners.
+4. publisher and listeners are loosely coupled.
+
+b)
+c)

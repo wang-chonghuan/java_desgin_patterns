@@ -1,0 +1,4 @@
+a) the intent of state design pattern is to model the behaviour depends on the variation of states
+    the intent of strategy design pattern is for dynamic binding a group of algorithms by using polymorphism
+
+b) use strategy design pattern
