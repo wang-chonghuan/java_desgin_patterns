@@ -24,6 +24,4 @@ public class InterceptorNotification implements Interceptor {
     private final double DANGER_TEMPERATURE_LOWER = -10.0;
     private final double DANGER_PRESSURE_UPPER = 1100.0;
     private final double DANGER_PRESSURE_LOWER = 900.0;
-
-
 }

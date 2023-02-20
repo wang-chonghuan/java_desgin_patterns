@@ -9,7 +9,8 @@ public class TestDemos {
     public void testInterceptorLog() {
         LogCaptor logCaptor = LogCaptor.forClass(WeatherStation.class);
         InterceptorWeather.Application.run();
-        assertThat(logCaptor.getErrorLogs(), contains("intentionally cause a false"));
+        assertThat(logCaptor.getErrorLogs(), contains("dispatch returns false for context: " +
+                "MeasurementDTO{temperature=20.0, humidity=90.0, pressure=3000.0}"));
     }
 
     @Test
