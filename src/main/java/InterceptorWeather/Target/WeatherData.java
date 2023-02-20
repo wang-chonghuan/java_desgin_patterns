@@ -4,12 +4,25 @@ import InterceptorWeather.Interceptor.MeasurementDTO;
 
 import java.util.ArrayList;
 
-// this is the target
+// this is the context
 public class WeatherData implements Subject, Context {
+    private static WeatherData singleton = null;
     private ArrayList<Observer> observers;
     private MeasurementDTO m;
+    private WeatherData() {
+        observers = new ArrayList<Observer>();
+        // add observers
+        new DisplayCurrentConditions(this);
+        new DisplayStatistics(this);
+        new DisplayForecast(this);
+    }
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(m.getTemperature(), m.getHumidity(), m.getPressure());
+        }
+    }
 
-    private static WeatherData singleton = null;
+
     public static WeatherData get() {
         if(WeatherData.singleton == null) {
             WeatherData.singleton = new WeatherData();
@@ -19,12 +32,7 @@ public class WeatherData implements Subject, Context {
         }
     }
 
-    private WeatherData() {
-        observers = new ArrayList<Observer>();
-        new DisplayCurrentConditions(this);
-        new DisplayStatistics(this);
-        new DisplayForecast(this);
-    }
+
 
     public void registerObserver(Observer o) {
         observers.add(o);
@@ -37,11 +45,7 @@ public class WeatherData implements Subject, Context {
         }
     }
 
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update(m.getTemperature(), m.getHumidity(), m.getPressure());
-        }
-    }
+
 
     @Override
     public WeatherData setMeasurement(MeasurementDTO m) {

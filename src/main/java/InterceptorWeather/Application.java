@@ -3,7 +3,7 @@ package InterceptorWeather;
 import InterceptorWeather.Interceptor.InterceptorDisplay;
 import InterceptorWeather.Interceptor.InterceptorPersistence;
 import InterceptorWeather.Interceptor.InterceptorValidation;
-import InterceptorWeather.Interceptor.InterceptorWarning;
+import InterceptorWeather.Interceptor.InterceptorNotification;
 
 public class Application {
     public static void run() {
@@ -12,7 +12,7 @@ public class Application {
         weatherStation.attachInterceptor(new InterceptorValidation());
         weatherStation.attachInterceptor(new InterceptorDisplay());
         weatherStation.attachInterceptor(new InterceptorPersistence());
-        weatherStation.attachInterceptor(new InterceptorWarning());
+        weatherStation.attachInterceptor(new InterceptorNotification());
         // receiving event
         weatherStation.measurementEvent(41, 65, 1000);
         weatherStation.measurementEvent(-50, 70, 1200);
