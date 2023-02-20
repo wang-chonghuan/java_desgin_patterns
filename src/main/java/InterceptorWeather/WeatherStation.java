@@ -1,43 +1,38 @@
 package InterceptorWeather;
 
 import InterceptorWeather.Interceptor.*;
-import InterceptorWeather.Target.DisplayCurrentConditions;
-import InterceptorWeather.Target.DisplayForecast;
-import InterceptorWeather.Target.DisplayStatistics;
 import InterceptorWeather.Target.WeatherData;
 import lombok.extern.slf4j.Slf4j;
 
-// this is the state machine
+// this is the state machine, and the main entrance
 @Slf4j
 public class WeatherStation {
 
+    public static void run() {
+        WeatherStation weatherStation = new WeatherStation();
+        weatherStation.receivedMeasurements(41, 65, 1000);
+        weatherStation.receivedMeasurements(-50, 70, 1200);
+        weatherStation.receivedMeasurements(20, 90, 3000);
+    }
+
     // these are the states of this state machine
-    WeatherData weatherData;
-    private InterceptorGroup groupBefore;
-    private InterceptorGroup groupAfter;
+    WeatherData weatherData = WeatherData.get();
+    private InterceptorGroup interceptors;
 
     public WeatherStation() {
-        weatherData = new WeatherData();
-        groupBefore = new InterceptorGroup();
-        groupAfter = new InterceptorGroup();
-        // add interceptors to the respective groups
-        groupBefore.addInterceptor(new InterceptorWriterValidator());
-        groupAfter.addInterceptor(new InterceptorReaderPersistence());
-        groupAfter.addInterceptor(new InterceptorReaderWarning());
-        // add display observer to WeatherData, which is the target and subject
-        new DisplayCurrentConditions(weatherData);
-        new DisplayStatistics(weatherData);
-        new DisplayForecast(weatherData);
+        interceptors = new InterceptorGroup();
+        interceptors.addInterceptor(new InterceptorValidation());
+        interceptors.addInterceptor(new InterceptorDisplay());
+        interceptors.addInterceptor(new InterceptorPersistence());
+        interceptors.addInterceptor(new InterceptorWarning());
     }
 
     // this is doAction of the state machine
     public void receivedMeasurements(float temperature, float humidity, float pressure) {
-        MeasurementContext context = new MeasurementContext(temperature, humidity, pressure);
-        Dispatcher dispatcher = new Dispatcher();
+        weatherData.setMeasurement(new MeasurementDTO(temperature, humidity, pressure));
+        var dispatcher = new Dispatcher();
         try {
-            dispatcher.dispatchBefore(groupBefore, context);
-            weatherData.setMeasurements(context);
-            dispatcher.dispatchAfter(groupAfter, context);
+            dispatcher.dispatch(interceptors, weatherData);
         }
         catch (Exception e) {
             log.error(e.getMessage());

@@ -1,6 +1,8 @@
 package InterceptorWeather.Interceptor;
 
+import InterceptorWeather.Target.Context;
+import jjexam.weatherobserver.WeatherData;
+
 public interface Interceptor {
-    boolean before(MeasurementContext context);
-    void after(MeasurementContext context);
+    boolean process(Context c);
 }

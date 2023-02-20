@@ -8,8 +8,6 @@ public abstract class Observer {
         weatherData.registerObserver(this);
     }
 
-    public void update(double temperature, double humidity, double pressure) {
-
-    }
+    public abstract void update(double temperature, double humidity, double pressure);
 
 }

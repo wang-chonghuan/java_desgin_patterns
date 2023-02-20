@@ -1,4 +1,4 @@
-import InterceptorWeather.InterceptorWeatherDemo;
+import InterceptorWeather.WeatherStation;
 import org.junit.Test;
 
 public class TestDemos {
@@ -15,6 +15,6 @@ public class TestDemos {
 
     @Test
     public void testInterceptor() {
-        InterceptorWeatherDemo.run();
+        WeatherStation.run();
     }
 }

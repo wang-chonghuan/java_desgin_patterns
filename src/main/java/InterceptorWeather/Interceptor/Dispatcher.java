@@ -1,17 +1,15 @@
 package InterceptorWeather.Interceptor;
 
-public class Dispatcher {
-    public void dispatchBefore(InterceptorGroup interceptorGroup, MeasurementContext context) throws Exception {
-        for(var interceptor : interceptorGroup.getInterceptors()) {
-            if(!interceptor.before(context)) {
-                throw new Exception("dispatchBefore returns false for context: " + context.toString());
-            }
-        }
-    }
+import InterceptorWeather.Target.Context;
+import jjexam.weatherobserver.WeatherData;
 
-    public void dispatchAfter(InterceptorGroup interceptorGroup, MeasurementContext context) {
+public class Dispatcher {
+
+    public void dispatch(InterceptorGroup interceptorGroup, Context context) throws Exception {
         for(var interceptor : interceptorGroup.getInterceptors()) {
-            interceptor.after(context);
+            if(!interceptor.process(context)) {
+                throw new Exception("dispatch returns false for context: " + context.toString());
+            }
         }
     }
 }
