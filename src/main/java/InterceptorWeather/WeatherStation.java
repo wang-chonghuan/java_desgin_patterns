@@ -1,7 +1,7 @@
 package InterceptorWeather;
 
 import InterceptorWeather.Interceptor.*;
-import InterceptorWeather.Target.WeatherData;
+import InterceptorWeather.Business.WeatherData;
 import lombok.extern.slf4j.Slf4j;
 
 // this is the state machine, and the main entrance

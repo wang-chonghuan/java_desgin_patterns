@@ -1,6 +1,6 @@
 package InterceptorWeather.Interceptor;
 
-import InterceptorWeather.Target.Context;
+import InterceptorWeather.Business.Context;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,7 +15,7 @@ public class InterceptorValidation implements Interceptor {
 
     @Override
     public boolean process(Context c) {
-        log.info("Measurement context validating {}", c.getMeasurement().toString());
+        log.info("Measurement Event Received {}", c.getMeasurement().toString());
         var temperature = c.getMeasurement().getTemperature();
         var humidity = c.getMeasurement().getHumidity();
         var pressure = c.getMeasurement().getPressure();

@@ -1,7 +1,6 @@
 package InterceptorWeather.Interceptor;
 
-import InterceptorStudy.InterceptorAchitecturalPattern.InterceptorReader;
-import InterceptorWeather.Target.Context;
+import InterceptorWeather.Business.Context;
 
 public class InterceptorDisplay implements Interceptor {
     @Override

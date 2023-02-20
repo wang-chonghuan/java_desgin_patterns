@@ -1,7 +1,6 @@
 package InterceptorWeather.Interceptor;
 
-import InterceptorWeather.Target.Context;
-import jjexam.weatherobserver.WeatherData;
+import InterceptorWeather.Business.Context;
 
 public class Dispatcher {
 
@@ -10,7 +9,7 @@ public class Dispatcher {
         for(var interceptor : interceptorGroup.getInterceptors()) {
             if(!interceptor.process(context)) {
                 throw new Exception(
-                        "dispatch returns false for context: " + context.toString());
+                        "dispatch returns false for context: " + context.getMeasurement().toString());
             }
         }
     }

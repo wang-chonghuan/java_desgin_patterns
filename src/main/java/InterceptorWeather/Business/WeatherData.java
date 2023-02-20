@@ -1,4 +1,4 @@
-package InterceptorWeather.Target;
+package InterceptorWeather.Business;
 
 import InterceptorWeather.Interceptor.MeasurementDTO;
 

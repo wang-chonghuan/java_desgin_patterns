@@ -1,4 +1,4 @@
-package InterceptorWeather.Target;
+package InterceptorWeather.Business;
 
 import lombok.extern.slf4j.Slf4j;
 

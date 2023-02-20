@@ -1,6 +1,6 @@
 package InterceptorWeather.Interceptor;
 
-import InterceptorWeather.Target.Context;
+import InterceptorWeather.Business.Context;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

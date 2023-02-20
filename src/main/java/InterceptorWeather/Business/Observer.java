@@ -1,4 +1,4 @@
-package InterceptorWeather.Target;
+package InterceptorWeather.Business;
 
 public abstract class Observer {
     private Subject weatherData;

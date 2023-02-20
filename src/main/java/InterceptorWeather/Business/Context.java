@@ -1,8 +1,6 @@
-package InterceptorWeather.Target;
+package InterceptorWeather.Business;
 
 import InterceptorWeather.Interceptor.MeasurementDTO;
-
-import java.security.MessageDigest;
 
 public interface Context {
     void notifyObservers();
